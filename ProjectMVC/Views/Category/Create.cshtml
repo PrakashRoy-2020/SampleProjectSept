@@ -1,0 +1,29 @@
+﻿@model ProjectMVC.Models.Category
+@{
+    ViewBag.Title = "Create";
+}
+<div>
+
+    <h2>Create Category</h2>
+
+    @using (Html.BeginForm())
+
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-row">
+            @Html.LabelFor(c => c.CName)
+            @Html.TextBoxFor(c => c.CName, new { @class = "form-row" })
+
+
+        </div>
+        
+        <div>
+            <br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </div>
+    }
+
+</div>
+   

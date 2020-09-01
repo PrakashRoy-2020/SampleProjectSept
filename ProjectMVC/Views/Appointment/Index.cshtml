@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProjectMVC.Models.Appointment>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="display:inline-block"><h2 class="text-success">Appointment List</h2></div>
+<div style="float:right;display:inline-block;margin-top:10px">
+    @Html.ActionLink("Appointment", "New", "Appointment", null, new { @class = "btn btn-success" })
+
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>Product Name</th>
+            <th>Date</th>
+            <th>confirmed</th>
+            <th> </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.ActionLink(item.PersonName, "Details", "Appointment", new { id = item.AId }, null)</td>
+            
+
+
+            <td>@item.Email</td>
+
+            <td>@item.PhoneNumber</td>
+            <td>@item.Product.Name</td>
+            <td>@item.Date</td>
+            <td>
+                <div class="checkbox">
+                    <label><input type="checkbox" value=""> </label>
+                </div>
+            </td>
+
+            <td>@Html.ActionLink("Edit", "Edit", "Appointment", new { id = item.AId }, new { @class = "btn btn-success" })</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+

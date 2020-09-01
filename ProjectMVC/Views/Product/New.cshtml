@@ -1,0 +1,42 @@
+﻿@model ProjectMVC.Models.ViewModel.NewCategoryViewModel
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create Product</h2>
+@using (Html.BeginForm("Save", "Product"))
+{
+    <div class="form-control-static">
+        @Html.LabelFor(m => m.Product.Category.CName)
+        @Html.DropDownListFor(m => m.Product.Category.CName, new SelectList
+        (Model.Category, "CId", "CName"), " ", new { @class = "form-row" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.Name)
+        @Html.TextBoxFor(m => m.Product.Name, new { @class = "form-row" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.Price)
+        @Html.TextBoxFor(m => m.Product.Price, new { @class = "form-row" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.ShadeColour)
+        @Html.TextBoxFor(m => m.Product.ShadeColour, new { @class = "form-row" })
+    </div>
+    
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">
+                    Image
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </label>
+            </div>
+        </form>
+    
+
+
+    
+    
+    @Html.HiddenFor(m => m.Product.Id);
+    <button type="submit" class="btn btn-primary">Submit</button>}
+

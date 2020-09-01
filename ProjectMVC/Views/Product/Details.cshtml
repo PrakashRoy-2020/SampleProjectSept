@@ -1,0 +1,50 @@
+﻿@model ProjectMVC.Models.Product
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="container" style=" margin-left:50px; margin-top:80px;">
+    <div class="row">
+        <div class="col-md-12 center-block">
+            <h2>Product Details</h2>
+            @using (Html.BeginForm("Edit", "Products"))
+            {
+                <div>
+                    <div class="form-control">
+                        @Html.LabelFor(m => m.Name)
+                        @Html.TextBoxFor(m => m.Name)
+                    </div>
+                    <div class="form-control">
+                        @Html.LabelFor(m => m.ShadeColour)
+                        @Html.TextBoxFor(m => m.ShadeColour)
+                    </div>
+                    <div class="form-control">
+                        @Html.LabelFor(m => m.Price)
+                        @Html.TextBoxFor(m => m.Price)
+                    </div>
+                    <div class="form-control">
+                        @Html.LabelFor(m => m.Category.CName)
+                        @Html.TextBoxFor(m => m.Category.CName)
+                    </div>
+                    <div class="row">
+                        <div style="margin-left">
+                            @Html.ActionLink("BackToList", "Index", "Product", null, new { @class = "btn btn-success" })
+                            <br />
+                        </div>
+                        <div>
+                            @Html.ActionLink("BookAppointment", "Create", "Appointment", null, new { @class = "btn btn-primary" })
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,47 @@
+﻿@model ProjectMVC.Models.ViewModel.NewAppointmentViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+<h2>Edit Appointment</h2>
+@using (Html.BeginForm("Edit", "Appointment"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.PersonName)
+        @Html.TextBoxFor(m => m.Appointment.PersonName, new { @class = "form-row" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.Email)
+        @Html.TextBoxFor(m => m.Appointment.Email, new { @class = "form-row" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.PhoneNumber)
+        @Html.TextBoxFor(m => m.Appointment.PhoneNumber, new { @class = "form-row" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.Product.Name)
+        @Html.TextBoxFor(m => m.Appointment.Product.Name, new { @class = "form-row" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.Date)
+        @Html.TextBoxFor(m => m.Appointment.Date, new { @class = "form-row" })
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-success">Confimed</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+
+    </div>
+
+
+
+
+
+
+    @Html.HiddenFor(m => m.Appointment.AId);
+    }
+
+
+
